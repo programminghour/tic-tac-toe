@@ -1,7 +1,50 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
+char p[9];
+char who;
+int juz;
+int pre;
+
+void check()
+{
+        if((p[0] == p[1] && p[1] == p[2] && p[2] != 'n') ||
+           (p[3] == p[4] && p[4] == p[5] && p[5] != 'n') ||
+           (p[6] == p[7] && p[7] == p[8] && p[8] != 'n') ||
+           (p[0] == p[3] && p[3] == p[6] && p[6] != 'n') ||
+           (p[1] == p[4] && p[4] == p[7] && p[7] != 'n') ||
+           (p[2] == p[5] && p[5] == p[8] && p[8] != 'n') ||
+           (p[0] == p[4] && p[4] == p[8] && p[8] != 'n') ||
+           (p[2] == p[4] && p[4] == p[6] && p[6] != 'n'))
+        {
+            char *w;
+            if(who == 'x')      w = "Circle wins! Congrats! :)";
+            else                w = "Cross wins! Congrats! :)";
+
+            Application -> MessageBox(w, "Congratulations!", MB_OK);
+        /*
+            Image1 -> Enabled = false;
+            Image2 -> Enabled = false;
+            Image3 -> Enabled = false;
+            Image4 -> Enabled = false;
+            Image5 -> Enabled = false;
+            Image6 -> Enabled = false;
+            Image7 -> Enabled = false;
+            Image8 -> Enabled = false;
+            Image9 -> Enabled = false;    */
+
+        }
+
+}
+
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
@@ -10,7 +53,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-       /* Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        Image1 -> Picture -> LoadFromFile("img/nic.bmp");
         Image2 -> Picture -> LoadFromFile("img/nic.bmp");
         Image3 -> Picture -> LoadFromFile("img/nic.bmp");
         Image4 -> Picture -> LoadFromFile("img/nic.bmp");
@@ -18,7 +61,444 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
         Image6 -> Picture -> LoadFromFile("img/nic.bmp");
         Image7 -> Picture -> LoadFromFile("img/nic.bmp");
         Image8 -> Picture -> LoadFromFile("img/nic.bmp");
-        Image9 -> Picture -> LoadFromFile("img/nic.bmp");          */ 
+        Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+
+        for(int i = 0; i < 9; i++)
+                p[i] = 'n';
+
+        who = 'o';
+        juz = 0;
+        pre = 0;
+
+        Image1 -> Enabled = true;
+        Image2 -> Enabled = true;
+        Image3 -> Enabled = true;
+        Image4 -> Enabled = true;
+        Image5 -> Enabled = true;
+        Image6 -> Enabled = true;
+        Image7 -> Enabled = true;
+        Image8 -> Enabled = true;
+        Image9 -> Enabled = true;
+
+
+
 }
 //---------------------------------------------------------------------------
- 
+void __fastcall TForm1::Image1Click(TObject *Sender)
+{
+        if(p[0] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[0] = 'o';
+                        who = 'x';
+                        Image1 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[0] = 'x';
+                        who = 'o';
+                        Image1 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image1 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image2Click(TObject *Sender)
+{
+        if(p[1] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[1] = 'o';
+                        who = 'x';
+                        Image2 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[1] = 'x';
+                        who = 'o';
+                        Image2 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image2 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image3Click(TObject *Sender)
+{
+        if(p[2] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[2] = 'o';
+                        who = 'x';
+                        Image3 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[2] = 'x';
+                        who = 'o';
+                        Image3 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image3 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image4Click(TObject *Sender)
+{
+        if(p[3] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[3] = 'o';
+                        who = 'x';
+                        Image4 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[3] = 'x';
+                        who = 'o';
+                        Image4 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image4 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image5Click(TObject *Sender)
+{
+        if(p[4] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[4] = 'o';
+                        who = 'x';
+                        Image5 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[4] = 'x';
+                        who = 'o';
+                        Image5 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image5 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image6Click(TObject *Sender)
+{
+        if(p[5] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[5] = 'o';
+                        who = 'x';
+                        Image6 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[5] = 'x';
+                        who = 'o';
+                        Image6 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image6 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image7Click(TObject *Sender)
+{
+        if(p[6] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[6] = 'o';
+                        who = 'x';
+                        Image7 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[6] = 'x';
+                        who = 'o';
+                        Image7 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image7 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image8Click(TObject *Sender)
+{
+        if(p[7] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[7] = 'o';
+                        who = 'x';
+                        Image8 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[7] = 'x';
+                        who = 'o';
+                        Image8 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image8 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image9Click(TObject *Sender)
+{
+        if(p[8] == 'n')
+        {
+                if(who == 'o')
+                {
+                        p[8] = 'o';
+                        who = 'x';
+                        Image9 -> Picture -> LoadFromFile("img/o.bmp");
+                        tura -> Picture -> LoadFromFile("img/xsmall.bmp");
+
+                }
+                else
+                {
+                        p[8] = 'x';
+                        who = 'o';
+                        Image9 -> Picture -> LoadFromFile("img/x.bmp");
+                        tura -> Picture -> LoadFromFile("img/osmall.bmp");
+                }
+                Image9 -> Enabled = false;
+                check();
+
+        }
+}
+//---------------------------------------------------------------------------
+/*void check()
+{
+        if((p[0] == p[1] && p[1] == p[2] && p[2] != 'n') ||
+           (p[3] == p[4] && p[4] == p[5] && p[5] != 'n') ||
+           (p[6] == p[7] && p[7] == p[8] && p[8] != 'n') ||
+           (p[0] == p[3] && p[3] == p[6] && p[6] != 'n') ||
+           (p[1] == p[4] && p[4] == p[7] && p[7] != 'n') ||
+           (p[2] == p[5] && p[5] == p[8] && p[8] != 'n') ||
+           (p[0] == p[4] && p[4] == p[8] && p[8] != 'n') ||
+           (p[2] == p[4] && p[4] == p[6] && p[6] != 'n'))
+        {
+            char *w;
+            if(who == 'x')      w = "Circle wins! Congrats! :)";
+            else                w = "Cross wins! Congrats! :)";
+
+            Application -> MessageBox(w, "Congratulations!", MB_OK);
+
+            Image1 -> Enabled = false;
+            Image2 -> Enabled = false;
+            Image3 -> Enabled = false;
+            Image4 -> Enabled = false;
+            Image5 -> Enabled = false;
+            Image6 -> Enabled = false;
+            Image7 -> Enabled = false;
+            Image8 -> Enabled = false;
+            Image9 -> Enabled = false;
+
+        }
+
+}
+                                             */
+void __fastcall TForm1::FormMouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        if(juz == 1)
+        {
+                if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+                if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+        }
+        juz = 0;
+}
+//---------------------------------------------------------------------------
+void over(TImage *obj, int jd)
+{     if(pre != jd)
+      {
+        if(who == 'x')
+        {
+                if(obj -> Enabled == true)    obj -> Picture -> LoadFromFile("img/x.bmp");
+
+        }
+        else
+        {
+                if(obj -> Enabled == true)    obj -> Picture -> LoadFromFile("img/o.bmp");
+
+        }
+        pre = jd;
+     }
+     
+}
+void __fastcall TForm1::Image1MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image1, 1);
+        if(Image2 -> Enabled == true && pre == 2)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image2MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image2);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image3MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image3);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image4MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image4);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image5MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image5);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image6MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image6);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image7MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image7);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image8MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image8);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image9 -> Enabled == true)    Image9 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Image9MouseMove(TObject *Sender, TShiftState Shift,
+      int X, int Y)
+{
+        over(Image9);
+        if(Image1 -> Enabled == true)    Image1 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image2 -> Enabled == true)    Image2 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image3 -> Enabled == true)    Image3 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image4 -> Enabled == true)    Image4 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image5 -> Enabled == true)    Image5 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image6 -> Enabled == true)    Image6 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image7 -> Enabled == true)    Image7 -> Picture -> LoadFromFile("img/nic.bmp");
+        if(Image8 -> Enabled == true)    Image8 -> Picture -> LoadFromFile("img/nic.bmp");
+}
+//---------------------------------------------------------------------------
